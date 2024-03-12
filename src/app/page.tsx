@@ -1,9 +1,13 @@
 import Image from 'next/image';
 
-export default function Home() {
+const  Homepage = () => {
   return (
-    <div>
+    <div className ='home'>
       <h1>Hello world</h1>
+
     </div>
   );
 }
+
+export default Homepage;
+
