@@ -16,7 +16,8 @@ export const getSession = async () => {
   }
   return session;
 };
-export const login = async (formData: FormData) => {
+export const login = async (prevState:{error:undefined | string },
+  formData: FormData) => {
   const session = await getSession()
  
   const formUsername = formData.get('username') as string
@@ -37,4 +38,8 @@ export const login = async (formData: FormData) => {
   await session.save()
   redirect('/')
 };
-export const logout = async () => {};
+export const logout = async () => {
+  const session = await getSession();
+   session.destroy();
+   redirect('/')
+};
